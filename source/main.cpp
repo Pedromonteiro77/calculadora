@@ -3,37 +3,37 @@
 #include <memory>
 
 int main() { 
-    std::unique_ptr<std::string> nome(new std::string);
-    std::unique_ptr<double> n1(new double);
-    std::unique_ptr<double> n2(new double);
-    std::unique_ptr<char> opera(new char);
+    std::string nome;
+    double n1;
+    double n2;
+    char opera;
     char opc;
 
-    auto soma = [](double a, double b) -> double {
+    auto soma = [](double & a, double & b) -> double {
         return a + b;
     };
 
-    auto subtrai = [](double a, double b) -> double {
+    auto subtrai = [](double & a, double & b) -> double {
         return a - b;
     };
 
-    auto multiplica = [](double a, double b) -> double {
+    auto multiplica = [](double & a, double & b) -> double {
         return a * b;
     };
 
-    auto divide = [](double a, double b) -> double {
+    auto divide = [](double & a, double & b) -> double {
         return a / b;
     };
      
     std::cout << "Oi Bem vindo me diga seu nome: ";
-    std::cin >> *nome;
+    std::cin >> nome;
 
         while(true) {
-        std::cout << "Oi " << *nome << " Me diga o que voce gostaria de calcular: soma(+), subtracao(-), multiplicacao(*), divisao(/): ";
-        std::cin >> *opera;
+        std::cout << "Oi " << nome << " Me diga o que voce gostaria de calcular: soma(+), subtracao(-), multiplicacao(*), divisao(/): ";
+        std::cin >> opera;
 
-        if((*opera != '+') && (*opera != '-') && (*opera != '*') && (*opera != '/')) {
-            std::cout << "INVALIDO. Por favor digite um dos caracteres: (+), (-), (*), (/). Vamos tentar novamente" 
+        if((opera != '+') && (opera != '-') && (opera != '*') && (opera != '/')) {
+            std::cerr << "INVALIDO. Por favor digite um dos caracteres: (+), (-), (*), (/). Vamos tentar novamente" 
             << std::endl;
             system("Pause");
             system("cls");
@@ -41,28 +41,28 @@ int main() {
         }
     
         std::cout << "Agora digite o primeiro numero: ";
-        std::cin >> *n1;
+        std::cin >> n1;
         std::cout << "Agora digite o segundo numero: ";
-        std::cin >> *n2;
+        std::cin >> n2;
 
-        if(*opera == '+') {
-            std::cout << *n1 << " + " << *n2 << " = " << soma(*n1, *n2) << std::endl;
+        if(opera == '+') {
+            std::cout << n1 << " + " << n2 << " = " << soma(n1, n2) << std::endl;
         }
-        else if(*opera == '-') {
-            std::cout << *n1 << " - " << *n2 << " = " << subtrai(*n1, *n2) << std::endl;
+        else if(opera == '-') {
+            std::cout << n1 << " - " << n2 << " = " << subtrai(n1, n2) << std::endl;
         }
-        else if(*opera == '*') {
-            std::cout << *n1 << " * " << *n2 << " = " << multiplica(*n1, *n2) << std::endl; 
+        else if(opera == '*') {
+            std::cout << n1 << " * " << n2 << " = " << multiplica(n1, n2) << std::endl; 
         }
-        else if(*opera == '/') {
-            if((*n2 == 0)) {
-                std::cout << "Desculpe nao e possivel dividir por zero. Vamos tentar novamente" << std::endl;
+        else if(opera == '/') {
+            if((n2 == 0)) {
+                std::cerr << "Desculpe nao e possivel dividir por zero. Vamos tentar novamente" << std::endl;
                 system("pause");
                 system("cls");
                 continue;
             }
             else {
-                std::cout << *n1 << " / " << *n2 << " = " << divide(*n1, *n2) << std::endl; 
+                std::cout << n1 << " / " << n2 << " = " << divide(n1, n2) << std::endl; 
             }
         }
 
@@ -75,7 +75,7 @@ int main() {
         }   
         else {
             system("cls");
-            std::cout << "Ok " << *nome << " obrigado por usar meu programa :)" << "\n";
+            std::cout << "Ok " << nome << " obrigado por usar meu programa :)" << "\n";
             break;
         }
 
