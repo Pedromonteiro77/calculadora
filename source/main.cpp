@@ -7,7 +7,6 @@ int main() {
     double n2;
     char opera;
     char opc;
-    bool verifi;
 
     auto soma = [](double & a, double & b) -> double {
         return a + b;
