@@ -1,29 +1,7 @@
 #include <iostream>
 #include <string>
 
-int main() { 
-    std::string nome;
-    double n1;
-    double n2;
-    char opera;
-    char opc;
-
-    auto soma = [](double & a, double & b) -> double {
-        return a + b;
-    };
-
-    auto subtrai = [](double & a, double & b) -> double {
-        return a - b;
-    };
-
-    auto multiplica = [](double & a, double & b) -> double {
-        return a * b;
-    };
-
-    auto divide = [](double & a, double & b) -> double {
-        return a / b;
-    };
-
+void verifyName(std::string & nome, char & opc) {
     while(nome.empty()) {
         while(nome.empty()) {
             std::cout << "Oi Bem vindo me diga seu nome: ";
@@ -52,6 +30,32 @@ int main() {
             }
         }
     }
+}
+
+int main() { 
+    std::string nome;
+    double n1;
+    double n2;
+    char opera;
+    char opc;
+
+    auto soma = [](double & a, double & b) -> double {
+        return a + b;
+    };
+
+    auto subtrai = [](double & a, double & b) -> double {
+        return a - b;
+    };
+
+    auto multiplica = [](double & a, double & b) -> double {
+        return a * b;
+    };
+
+    auto divide = [](double & a, double & b) -> double {
+        return a / b;
+    };
+
+    verifyName(nome, opc);
 
     while(true) {
         std::cout << "Oi " << nome << " Me diga o que voce gostaria de calcular: soma(+), subtracao(-), multiplicacao(*), divisao(/): ";
