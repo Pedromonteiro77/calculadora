@@ -2,6 +2,8 @@
 #include "..\header\calculadora.h"
 
 void verifyName(std::string & nome, char & opc) {
+    std::system("cls");
+    
     while(nome.empty()) {
         while(nome.empty()) {
             std::cout << "Oi Bem vindo me diga seu nome: ";
