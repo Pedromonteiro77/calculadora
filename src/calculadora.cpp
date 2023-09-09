@@ -1,6 +1,22 @@
 #include <iostream>
 #include "..\header\calculadora.h"
 
+double sum(double & n1, double & n2) {
+    return n1 + n2;
+}
+
+double subtract(double & n1, double & n2) {
+    return n1 - n2;
+}
+
+double multiply(double & n1, double & n2) {
+    return n1 * n2;
+}
+
+double divide(double & n1, double & n2) {
+    return n1 / n2;
+}
+
 void verifyName(std::string & nome, char & opc) {
     std::system("cls");
     
@@ -35,22 +51,6 @@ void verifyName(std::string & nome, char & opc) {
 }
 
 void calcula(std::string & nome, double & n1, double & n2, char & opera, char & opc) {
-    auto soma = [](double & a, double & b) -> double {
-        return a + b;
-    };
-
-    auto subtrai = [](double & a, double & b) -> double {
-        return a - b;
-    };
-
-    auto multiplica = [](double & a, double & b) -> double {
-        return a * b;
-    };
-
-    auto divide = [](double & a, double & b) -> double {
-        return a / b;
-    };
-    
     while(true) {
         std::cout << "Oi " << nome << " Me diga o que voce gostaria de calcular: soma(+), subtracao(-), multiplicacao(*), divisao(/): ";
         std::cin >> opera;
@@ -69,13 +69,13 @@ void calcula(std::string & nome, double & n1, double & n2, char & opera, char & 
         std::cin >> n2;
 
         if(opera == '+') {
-            std::cout << n1 << " + " << n2 << " = " << soma(n1, n2) << std::endl;
+            std::cout << n1 << " + " << n2 << " = " << sum(n1, n2) << std::endl;
         }
         else if(opera == '-') {
-            std::cout << n1 << " - " << n2 << " = " << subtrai(n1, n2) << std::endl;
+            std::cout << n1 << " - " << n2 << " = " << subtract(n1, n2) << std::endl;
         }
         else if(opera == '*') {
-            std::cout << n1 << " * " << n2 << " = " << multiplica(n1, n2) << std::endl; 
+            std::cout << n1 << " * " << n2 << " = " << multiply(n1, n2) << std::endl; 
         }
         else if(opera == '/') {
             if((n2 == 0)) {
