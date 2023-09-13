@@ -3,16 +3,55 @@
 
 #include <string>
 
-double sum(double & n1, double & n2);
+class Calculadora {
+private:
+    std::string name;
+    double n1, n2;
+    char opera;
+    char opc;
 
-double subtract(double & n1, double & n2);
+public:
+    void calculadora() {
+        sum();
+        subtract();
+        multiply();
+        divide();
+        verifyName();
+        calcula();
+    }
 
-double multiply(double & n1, double & n2);
+    std::string getName() {
+        return name;
+    }
 
-double divide(double & n1, double & n2);
+    double getN1() {
+        return n1;
+    }
 
-void verifyName(std::string & nome, char & opc);
+    double getN2() {
+        return n2;
+    }
 
-void calcula(std::string & nome, double & n1, double & n2, char & opera, char & opc);
+    char getOpera() {
+        return opera;
+    }
+
+    char getOpc() {
+        return opc;
+    }
+
+    double sum();
+
+    double subtract();
+
+    double multiply();
+
+    double divide();
+
+    void verifyName();
+
+    void calcula();
+};
+
 
 #endif
