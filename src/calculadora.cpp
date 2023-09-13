@@ -1,30 +1,30 @@
 #include <iostream>
 #include "..\header\calculadora.h"
 
-double sum(double & n1, double & n2) {
+double Calculadora::sum() {
     return n1 + n2;
 }
 
-double subtract(double & n1, double & n2) {
+double Calculadora::subtract() {
     return n1 - n2;
 }
 
-double multiply(double & n1, double & n2) {
+double Calculadora::multiply() {
     return n1 * n2;
 }
 
-double divide(double & n1, double & n2) {
+double Calculadora::divide() {
     return n1 / n2;
 }
 
-void verifyName(std::string & nome, char & opc) {
+void Calculadora::verifyName() {
     std::system("cls");
     
-    while(nome.empty()) {
-        while(nome.empty()) {
+    while(name.empty()) {
+        while(name.empty()) {
             std::cout << "Oi Bem vindo me diga seu nome: ";
-            std::getline(std::cin, nome);
-            if(nome.empty()) {
+            std::getline(std::cin, name);
+            if(name.empty()) {
                 std::cerr << "ERRO, Digite seu nome ou como gostaria de ser chamado!" << std::endl;
                 std::cout << "Pressione Enter para continuar...";
                 std::cin.get(); 
@@ -33,7 +33,7 @@ void verifyName(std::string & nome, char & opc) {
         }
 
         while(true) {
-            std::cout << "Seu nome e " << nome << " esta correto? sim(s), nao(n): ";
+            std::cout << "Seu nome e " << name << " esta correto? sim(s), nao(n): ";
             std::cin >> opc;
             std::cin.ignore();
 
@@ -42,7 +42,7 @@ void verifyName(std::string & nome, char & opc) {
                 break;
             } 
             else {
-                nome.clear();
+                name.clear();
                 std::system("cls");
                 break;
             }
@@ -50,9 +50,9 @@ void verifyName(std::string & nome, char & opc) {
     }
 }
 
-void calcula(std::string & nome, double & n1, double & n2, char & opera, char & opc) {
+void Calculadora::calcula() {
     while(true) {
-        std::cout << "Oi " << nome << " Me diga o que voce gostaria de calcular: soma(+), subtracao(-), multiplicacao(*), divisao(/): ";
+        std::cout << "Oi " << name << " Me diga o que voce gostaria de calcular: soma(+), subtracao(-), multiplicacao(*), divisao(/): ";
         std::cin >> opera;
 
         if((opera != '+') && (opera != '-') && (opera != '*') && (opera != '/')) {
@@ -69,13 +69,13 @@ void calcula(std::string & nome, double & n1, double & n2, char & opera, char & 
         std::cin >> n2;
 
         if(opera == '+') {
-            std::cout << n1 << " + " << n2 << " = " << sum(n1, n2) << std::endl;
+            std::cout << n1 << " + " << n2 << " = " << sum() << std::endl;
         }
         else if(opera == '-') {
-            std::cout << n1 << " - " << n2 << " = " << subtract(n1, n2) << std::endl;
+            std::cout << n1 << " - " << n2 << " = " << subtract() << std::endl;
         }
         else if(opera == '*') {
-            std::cout << n1 << " * " << n2 << " = " << multiply(n1, n2) << std::endl; 
+            std::cout << n1 << " * " << n2 << " = " << multiply() << std::endl; 
         }
         else if(opera == '/') {
             if((n2 == 0)) {
@@ -85,7 +85,7 @@ void calcula(std::string & nome, double & n1, double & n2, char & opera, char & 
                 continue;
             }
             else {
-                std::cout << n1 << " / " << n2 << " = " << divide(n1, n2) << std::endl; 
+                std::cout << n1 << " / " << n2 << " = " << divide() << std::endl; 
             }
         }
 
@@ -98,7 +98,7 @@ void calcula(std::string & nome, double & n1, double & n2, char & opera, char & 
         }   
         else {
             std::system("cls");
-            std::cout << "Ok " << nome << " obrigado por usar meu programa :)" << "\n";
+            std::cout << "Ok " << name << " obrigado por usar meu programa :)" << "\n";
             break;
         }
     }
